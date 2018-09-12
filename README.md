@@ -1,4 +1,4 @@
-# testing vue jest :computer: :microscopio:
+# testing vue jest :computer: :microscope:
 
 > A Vue.js project
 
