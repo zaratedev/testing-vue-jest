@@ -33,3 +33,31 @@ test('fullName computed is firstName and lastName', () => {
     });
     expect(wrapper.vm.fullName).toBe('John Doe');
 });
+
+test('fullName computed is displayed', () => {
+    const wrapper = mount(App, {
+        computed: {
+            fullName: () => 'John Doe'
+        }
+    });
+    expect(wrapper.text()).toContain('John Doe');
+});
+
+test('firstName is in uppercase when button is clicked', () => {
+    const wrapper = mount(App);
+    wrapper.setData({
+        firstName: 'John',
+    });
+    const button = wrapper.find('button');
+    button.trigger('click');
+    expect(wrapper.vm.firstName).toBe('JOHN');
+});
+
+test('firstName is in uppercase when toUppercase method is called', () => {
+    const wrapper = mount(App);
+    wrapper.setData({
+      firstName: 'John'
+    });
+    wrapper.vm.toUppercase();
+    expect(wrapper.vm.firstName).toBe('JOHN');
+});
