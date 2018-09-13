@@ -1,4 +1,4 @@
-import { mount } from 'vue-test-utils';
+import { mount } from '@vue/test-utils';
 import App from '@/App';
 
 test('component has a name', () => {
@@ -98,4 +98,23 @@ test('warning is displayed if msg is empty', () => {
     });
     const warning = wrapper.find('#warning');
     expect(warning.exists()).toBe(true);
+});
+
+test('warning is not displayed if msg is not empty', () => {
+    const wrapper = mount(App);
+    wrapper.setData({
+      msg: 'something'
+    });
+    expect(wrapper.find('#warning').isVisible()).toBe(false);
+});
+
+test('warning message is a div', () => {
+    const wrapper = mount(App);
+    expect(wrapper.find('#warning').is('div')).toBe(true);
+});
+
+test('fullName does not have blue class when msg is empty', () => {
+    const wrapper = mount(App);
+    wrapper.setData({ msg: '' });
+    expect(wrapper.find('#full-name').classes()).not.toContain('blue');
 });

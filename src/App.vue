@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="warning" v-if="!msg">Please fill the message</div>
+    <div id="warning" v-show="!msg">Please fill the message</div>
     <input type="text" v-model="msg">
     <span id="message">{{ msg }}</span>
     <span id="full-name">{{ fullName }}</span>
