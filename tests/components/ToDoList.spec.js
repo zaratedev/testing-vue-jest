@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
-import ToDoList from '@/ToDoList';
-import Task from '@/Task';
+import ToDoList from '@/components/ToDoList';
+import Task from '@/components/Task';
 
 describe('Component ToDoList', () => {
-
+    
     test('it renders Task component', () => {
         const wrapper = mount(ToDoList);
         wrapper.setData({ tasks: [1] });
@@ -15,5 +15,12 @@ describe('Component ToDoList', () => {
         wrapper.setData({ tasks: [1, 2] });
         const tasks = wrapper.findAll(Task);
         expect(tasks.length).toBe(2);
+    });
+
+    test('it passes right props to Task component', () => {
+        const wrapper = mount(ToDoList);
+        wrapper.setData({ tasks: ['1'] });
+        const task = wrapper.find(Task);
+        expect(task.props()).toEqual({ task: '1' });
     });
 });

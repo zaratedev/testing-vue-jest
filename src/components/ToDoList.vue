@@ -1,6 +1,10 @@
 <template>
     <div>
-        <Task v-for="task in tasks" :key="task" />
+        <Task 
+            v-for="task in tasks" 
+            :key="task"
+            :task="task">
+        </Task>
     </div>
     
 </template>
