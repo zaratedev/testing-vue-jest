@@ -16,7 +16,8 @@ import Task from './Task';
 export default {
     data () {
         return {
-            tasks: []
+            tasks: [],
+            params: this.$route.params
         }
     },
     components: {
