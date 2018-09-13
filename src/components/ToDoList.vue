@@ -3,7 +3,8 @@
         <Task 
             v-for="task in tasks" 
             :key="task"
-            :task="task">
+            :task="task"
+            @delete="deleteTask(task)">
         </Task>
     </div>
     
@@ -20,6 +21,11 @@ export default {
     },
     components: {
         Task
+    },
+    methods: {
+        deleteTask(task) {
+            console.log(task);
+        }
     }
 }
 </script>
