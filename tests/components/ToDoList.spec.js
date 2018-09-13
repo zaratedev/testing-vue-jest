@@ -52,6 +52,6 @@ describe('Component ToDoList', () => {
             }
           }
         });
-         expect(wrapper.vm.params).toBe('MY PARAMS');
+        expect(wrapper.vm.params).toBe('MY PARAMS');
     });
 });
