@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 import Task from '@/components/Task';
 
 test('it renders task prop', () => {
@@ -19,4 +19,13 @@ test('it emits delete event when delete button is clicked', () => {
     const button = wrapper.find('#delete');
     button.trigger('click');
     expect(wrapper.emitted().delete).toBeTruthy();
+});
+
+test('it renders default slot', () => {
+    const wrapper = shallowMount(Task, {
+      slots: {
+        default: '<div id="close"></div>'
+      }
+    });
+    expect(wrapper.contains('#close')).toBe(true);
 });
