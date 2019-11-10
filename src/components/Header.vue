@@ -12,14 +12,16 @@ export default {
 
     data() {
         return {
-            user: {}
+            user: {},
+            error: false,
         }
     },
 
     created() {
-        axios.get('/api/user').then(data => {
-            this.user = data;
-        });
+        axios.get('/api/user')
+             .then((data) => this.user = data)
+             .catch(() => this.error = true);
+
     }
 }
 </script>

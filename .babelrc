@@ -9,5 +9,11 @@
         ["env", { "targets": { "node": "current" }}]
       ]
     }
-  }
+  },
+  "plugins": [
+    ["transform-runtime", {
+      "polyfill": false,
+      "regenerator": true
+    }]
+  ]
 }
