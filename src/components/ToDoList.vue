@@ -17,7 +17,6 @@ export default {
     data () {
         return {
             tasks: [],
-            params: this.$route.params
         }
     },
     components: {
