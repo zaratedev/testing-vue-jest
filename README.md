@@ -1,5 +1,7 @@
 # testing vue jest :computer: :microscope:
 
+[![Build Status](https://travis-ci.org/zaratedev/testing-vue-jest.svg?branch=master)](https://travis-ci.org/zaratedev/testing-vue-jest)
+
 > A Vue.js project
 
 ## Build Setup
