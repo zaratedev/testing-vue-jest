@@ -1,7 +1,8 @@
 <template>
     <div>
+        <div>{{ activeTask.name }}</div>
         <Task 
-            v-for="task in tasks" 
+            v-for="task in allTasks" 
             :key="task"
             :task="task"
             @delete="deleteTask(task)">
@@ -11,17 +12,20 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex';
 import Task from './Task';
 
 export default {
-    data () {
-        return {
-            tasks: [],
-        }
+    computed: {
+        ...mapGetters(['allTasks']),
+
+        ...mapState(['activeTask'])
     },
+
     components: {
         Task
     },
+
     methods: {
         deleteTask(task) {
             console.log(task);
