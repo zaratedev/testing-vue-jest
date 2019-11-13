@@ -50,9 +50,9 @@ describe('Component Task', () => {
     });
   });
 
-  test('it emits complete event when button is clicked', () => {
+  test('it emits complete event when checkbox is clicked', () => {
     const wrapper = shallowMount(Task);
-    wrapper.find('button').trigger('click');
+    wrapper.find('input[type="checkbox"]').trigger('click');
 
     expect(wrapper.emitted().complete).toBeTruthy();
   });

@@ -5,7 +5,8 @@
                 <slot name="close"></slot>
             </span>
             <router-link :to="{ path: '/task', params: { task } }" name="Task view"></router-link>
-            <button @click="$emit('complete')">Complete Task</button>
+            <input type="checkbox" @click="$emit('complete')">
+            <span>Complete Task</span>
         </div>
         {{ task }}
         <slot></slot>

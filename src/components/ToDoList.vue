@@ -2,7 +2,7 @@
     <div>
         <Header />
         <input type="text" v-model="newTask">
-        <button @click="addTask(newTask)">Add Task</button>
+        <button @click="add(newTask)">Add Task</button>
         <div>{{ activeTask.name }}</div>
         <Task 
             v-for="(task, index) in allTasks" 
@@ -42,7 +42,12 @@ export default {
     },
 
     methods: {
-        ...mapActions(['deleteTask', 'addTask', 'completeTask'])
+        ...mapActions(['deleteTask', 'addTask', 'completeTask']),
+
+        add(task) {
+            this.addTask(task);
+            this.newTask = '';
+        }
     }
 }
 </script>
