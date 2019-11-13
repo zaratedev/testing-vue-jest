@@ -49,4 +49,11 @@ describe('Component Task', () => {
       }
     });
   });
+
+  test('it emits complete event when button is clicked', () => {
+    const wrapper = shallowMount(Task);
+    wrapper.find('button').trigger('click');
+
+    expect(wrapper.emitted().complete).toBeTruthy();
+  });
 });
