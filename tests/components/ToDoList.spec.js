@@ -22,7 +22,7 @@ describe('Component ToDoList', () => {
   });
 
   test('it renders Task component', () => {
-    mocks.$store.getters.allTasks = ['STRING'];
+    mocks.$store.getters.allTasks = [{ name: 'STRING' }];
     const wrapper = shallow(ToDoList, { mocks });
     expect(wrapper.contains(Task)).toBe(true);
   });
@@ -49,7 +49,7 @@ describe('Component ToDoList', () => {
     const wrapper = shallowMount(ToDoList, {
       mocks,
       computed: {
-        allTasks: () => ['MY PROP']
+        allTasks: () => [{ name: 'MY PROP' }]
       }
     });
     
@@ -87,7 +87,7 @@ describe('Component ToDoList', () => {
     const wrapper = shallowMount(ToDoList, {
       mocks,
       computed: {
-        allTasks: () => ['MY PROP']
+        allTasks: () => [{ name: 'MY PROP' }]
       }
     });
     

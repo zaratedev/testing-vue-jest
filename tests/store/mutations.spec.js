@@ -12,16 +12,33 @@ describe('store mutations', () => {
   });
 
   test('completeTask gets task index and sets done to true', () => {
+    const homework = { name: 'Study English', done: false };
     const state = {
       tasks: [
         { name: 'Got to supermarket', done: false },
-        { name: 'Got to gym', done: false },
+        homework,
       ],
     }
-    mutations.completeTask(state, 1);
+    mutations.completeTask(state, homework);
     expect(state.tasks).toEqual([
       { name: 'Got to supermarket', done: false },
-      { name: 'Got to gym', done: true },
+      { name: 'Study English', done: true },
+    ]);
+  });
+
+  test('un-completeTask gets task index and sets done to false', () => {
+    const homework = { name: 'Study English', done: true };
+    const state = {
+      tasks: [
+        { name: 'Got to supermarket', done: true },
+        homework
+      ],
+    }
+
+    mutations.uncompleteTask(state, homework);
+    expect(state.tasks).toEqual([
+      { name: 'Got to supermarket', done: true },
+      { name: 'Study English', done: false },
     ]);
   });
 

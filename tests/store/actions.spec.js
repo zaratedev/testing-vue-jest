@@ -36,4 +36,12 @@ describe('store actions', () => {
     expect(commit.mock.calls[0][0]).toBe('completeTask');
     expect(commit.mock.calls[0][1]).toBe(1);
   });
+
+  test('un-completeTask action calls uncompleteTask mutation', () => {
+    actions.uncompleteTask(store, 1);
+
+    expect(commit).toHaveBeenCalledTimes(1);
+    expect(commit.mock.calls[0][0]).toBe('uncompleteTask');
+    expect(commit.mock.calls[0][1]).toBe(1);
+  });
 });

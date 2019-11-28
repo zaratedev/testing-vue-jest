@@ -10,4 +10,8 @@ export default {
   completeTask: ({commit}, index) => {
     commit('completeTask', index);
   },
+
+  uncompleteTask: ({commit}, index) => {
+    commit('uncompleteTask', index);
+  },
 };
