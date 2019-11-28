@@ -1,19 +1,26 @@
 <template>
     <div>
         <Header />
-        <input type="text" v-model="newTask">
-        <button @click="add(newTask)">Add Task</button>
+        <div class="input-group mb-3">
+            <input type="text" v-model="newTask" class="form-control" placeholder="Add a new Task" aria-label="Add a new Task" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button @click="add(newTask)" class="btn btn-outline-primary" type="button">Add Task</button>
+            </div>
+        </div>
+        <!-- <input type="text" class="form-control" v-model="newTask">
+        <button  class="btn btn-primary">Add Task</button> -->
         <div>{{ activeTask.name }}</div>
-        <Task 
-            v-for="(task, index) in allTasks" 
-            :key="index"
-            :task="task"
-            @delete="deleteTask(index)"
-            @complete="completeTask(index)"
-        >
-            <span slot="close">x</span>
-            Random Text
-        </Task>
+        <div class="list-group mt-3">
+            <Task 
+                v-for="(task, index) in allTasks" 
+                :key="index"
+                :task="task"
+                @delete="deleteTask(index)"
+                @complete="completeTask(index)"
+            >
+                <span slot="close">x</span>
+            </Task>
+        </div>
     </div>
     
 </template>
@@ -24,6 +31,8 @@ import Header from './Header'
 import { mapGetters, mapState, mapActions } from 'vuex'
 
 export default {
+    name: 'ToDoList',
+    
     data() {
         return {
             newTask: '',

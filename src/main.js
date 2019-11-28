@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 import App from './App.vue';
 import TaskView from './components/TaskView'
 import ToDoList from './components/ToDoList'
@@ -10,7 +10,9 @@ const routes = [
   { path: '/task', component: TaskView },
 ];
 
-const router = new Router({
+Vue.use(VueRouter);
+
+const router = new VueRouter({
   routes,
 });
 

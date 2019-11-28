@@ -1,15 +1,15 @@
 <template>
-    <div>
+    <div 
+        class="list-group-item d-flex justify-content-between align-items-center"
+        :class="{ disabled: task.done }"
+    >
         <div>
-            <span id="delete" @click="$emit('delete')">
-                <slot name="close"></slot>
-            </span>
-            <router-link :to="{ path: '/task', params: { task } }" name="Task view"></router-link>
-            <input v-model="isChecked" type="checkbox">
-            <span>Complete Task</span>
+            {{ task.name }}<input class="ml-3" v-model="isChecked" type="checkbox">
+            <router-link :to="{ path: '/task', params: { task } }"></router-link>
         </div>
-        {{ task }}
-        <slot></slot>
+        <button id="delete" type="button" class="btn btn-sm btn-danger" @click="$emit('delete')">
+            Delete
+        </button>
     </div>
 </template>
 
